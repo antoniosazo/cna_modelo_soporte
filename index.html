@@ -47,6 +47,10 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .teams-inline{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:36px;padding-top:24px;border-top:1px solid var(--forest-line)}
 .teams-inline span{display:inline-flex;align-items:center;gap:10px;font-size:16px}
 .teams-inline i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.cue{display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin-top:40px;color:var(--accent-light);font-size:16px;font-weight:500;text-decoration:none}
+.cue span{display:inline-block;font-size:22px;line-height:1;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.cue span{animation:none}}
 
 /* Tarjetas */
 .grid{display:grid;gap:16px}
@@ -181,10 +185,11 @@ footer a{color:var(--accent-light)}
         <span><i style="background:oklch(0.65 0.13 60)"></i>ITSPACKS</span>
         <span><i style="background:oklch(0.65 0.13 310)"></i>Desarrollo y Proyectos Holding</span>
       </div>
+      <a class="cue" href="#plan">Sigue bajando para ver cómo funciona <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
-  <section>
+  <section id="plan">
     <div class="wrap">
       <div class="eyebrow">Planificación</div>
       <h2>Así comenzamos: 3 días</h2>
