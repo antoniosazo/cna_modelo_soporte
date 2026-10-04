@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1f3527">
+<title>Modelo de soporte</title>
+<meta name="description" content="Cómo pedir soporte en el grupo CNA: crea tu ticket en el Portal Interno del grupo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1f3527;--forest-deep:#14241a;--forest-card:#28432f;--forest-line:#335040;--forest-rule:#3d5a48;
+  --cream:#f5f1e6;--card:#fff;--card-soft:#fbf8f0;--line:#e4dccb;--line-strong:#d6ccb6;
+  --ink:#1f3527;--ink-2:#4d473c;--ink-3:#6f6756;--on-dark:#dbe5d5;--on-dark-2:#bfcfb9;
+  --accent:oklch(0.6 0.13 150);--accent-light:oklch(0.82 0.12 150);--accent-ink:oklch(0.45 0.12 150);
+  --wheat:oklch(0.86 0.09 88);
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --gutter:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;letter-spacing:-0.02em;line-height:1.1;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+section{padding:56px 0}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px}
+.dark{background:var(--forest);color:#fff}
+.dark .eyebrow{color:var(--accent-light)}
+h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
+.mono{font-family:var(--mono)}
+
+/* Barra superior */
+.top{position:sticky;top:0;z-index:10;background:var(--forest-deep);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.top-name{font-weight:600;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:12px;background:var(--accent-light);color:var(--forest-deep);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
+.btn:hover{background:oklch(0.88 0.1 150)}
+.top .btn{min-height:38px;padding:0 14px;font-size:15px}
+
+/* Portada */
+.hero{padding:56px 0 48px}
+.hero h1{font-size:clamp(44px,11vw,96px);font-weight:600;letter-spacing:-0.035em;line-height:.95;margin-bottom:20px}
+.hero p{font-size:clamp(18px,3.6vw,24px);color:var(--on-dark);max-width:720px;margin-bottom:32px}
+.teams-inline{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:36px;padding-top:24px;border-top:1px solid var(--forest-line)}
+.teams-inline span{display:inline-flex;align-items:center;gap:10px;font-size:16px}
+.teams-inline i{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* Tarjetas */
+.grid{display:grid;gap:16px}
+@media (min-width:720px){.grid-2{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.card h3{font-size:24px;font-weight:600}
+.card p{color:var(--ink-2)}
+.card-dark{background:var(--forest);color:#fff;border-color:var(--forest)}
+.card-dark p{color:var(--on-dark)}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:13px;padding:5px 10px;border-radius:7px;text-transform:uppercase;letter-spacing:.03em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ticks li{position:relative;padding-left:24px;color:var(--ink);font-size:17px}
+.ticks li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:3px;background:oklch(0.6 0.13 230)}
+.chip{padding:6px 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card-soft);font-size:15px;font-weight:500}
+
+/* Regla principal */
+.rule{background:var(--wheat)}
+.rule h2{font-size:clamp(40px,10vw,96px);font-weight:700;letter-spacing:-0.04em;line-height:.95;margin-bottom:20px}
+.rule p{font-size:clamp(18px,3.4vw,24px);color:#2e3a2c;max-width:760px;margin-bottom:28px}
+.rule .btn{background:var(--forest);color:#fff}
+
+/* Equipos */
+.team{border-top:6px solid var(--c)}
+.team .tag{align-self:flex-start;background:var(--t);color:var(--k)}
+.team .need{font-size:14px;color:var(--ink-3);margin-bottom:-8px}
+.team .who{margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.team .who small{display:block;font-size:14px;color:var(--ink-3)}
+.team .who strong{font-size:20px;color:var(--k);line-height:1.2}
+
+/* Pasos */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+@media (min-width:1000px){.steps{grid-template-columns:repeat(5,1fr)}}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;grid-template-columns:44px 1fr;gap:4px 16px;align-items:start}
+@media (min-width:1000px){.steps li{grid-template-columns:1fr;gap:12px}}
+.num{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:500;grid-row:span 2}
+.steps h3{font-size:20px;font-weight:600}
+.steps p{color:var(--ink-2);font-size:16px}
+.url-box{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:8px;background:oklch(0.95 0.04 150);color:oklch(0.38 0.11 150);font-family:var(--mono);font-size:14px;font-weight:500;word-break:break-all}
+
+/* Formulario */
+.shot-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(var(--gutter) * -1);padding:18px var(--gutter) 18px}
+.shot{position:relative;min-width:760px;aspect-ratio:1640/684}
+.shot img{width:100%;height:100%;display:block;border-radius:12px;border:1px solid #e0d7c4;box-shadow:0 12px 30px rgba(20,25,30,.1)}
+.spot{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:var(--forest);color:#fff;font-family:var(--mono);font-size:15px;font-weight:500;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25);transition:background .2s,box-shadow .2s;padding:0}
+.spot[aria-pressed="true"]{background:oklch(0.55 0.14 150);box-shadow:0 0 0 6px oklch(0.6 0.13 150 / .3)}
+.swipe{font-size:14px;color:var(--ink-3);margin-top:-4px}
+@media (min-width:800px){.swipe{display:none}.shot-scroll{overflow:visible;margin:0;padding:18px 0}}
+.fields{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+@media (min-width:800px){.fields{grid-template-columns:1fr 1fr}}
+.fields li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:border-color .2s,background .2s;scroll-margin:80px}
+.fields li.on{border:2px solid var(--accent);padding:13px 15px}
+.fields .n{width:32px;height:32px;border-radius:50%;background:var(--forest);color:#fff;font-family:var(--mono);font-size:15px;display:flex;align-items:center;justify-content:center}
+.fields li.on .n{background:var(--accent)}
+.fields strong{display:block;font-size:17px}
+.fields span{color:var(--ink-2);font-size:16px}
+
+/* Estados */
+.states{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+@media (min-width:1000px){.states{grid-template-columns:repeat(5,1fr)}}
+.states li{background:var(--forest-card);border-top:4px solid var(--accent-light);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.states .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.states .n{font-family:var(--mono);color:var(--accent-light);font-size:15px}
+.states .tag{background:var(--forest-line);color:var(--on-dark-2)}
+.states h3{font-size:24px;font-weight:600}
+.states p{color:var(--on-dark);font-size:16px}
+.states li.turn{background:var(--wheat);color:var(--ink);border-top-color:var(--forest)}
+.states li.turn .n{color:var(--ink)}
+.states li.turn .tag{background:var(--forest);color:#fff}
+.states li.turn p{color:#2e3a2c}
+.reopen{margin-top:24px;padding-top:20px;border-top:1px solid var(--forest-rule);display:grid;gap:6px}
+@media (min-width:800px){.reopen{grid-template-columns:auto 1fr;gap:24px;align-items:baseline}}
+.reopen strong{font-size:20px}
+.reopen p{color:var(--on-dark)}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.faq details[open]{border:2px solid var(--accent)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:28px 1fr 20px;gap:12px;align-items:center;padding:16px 18px;font-weight:600;font-size:17px;line-height:1.3;min-height:56px}
+.faq details[open] summary{padding:15px 17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .n{font-family:var(--mono);font-size:14px;color:#958b76;font-weight:400}
+.faq details[open] summary .n{color:var(--accent-ink)}
+.faq summary::after{content:'+';font-family:var(--mono);font-size:22px;color:var(--ink-3);text-align:center;font-weight:400}
+.faq details[open] summary::after{content:'−'}
+.faq details p{padding:0 17px 18px 57px;color:var(--ink-2)}
+
+/* Reglas */
+.rules{display:grid;gap:0}
+@media (min-width:800px){.rules{grid-template-columns:1fr 1fr;column-gap:32px}}
+.rules div{border-top:1px solid var(--forest-rule);padding:20px 0;display:grid;grid-template-columns:44px 1fr;gap:12px}
+.rules .n{font-family:var(--mono);font-size:20px;color:var(--accent-light)}
+.rules h3{font-size:22px;font-weight:600;margin-bottom:6px}
+.rules p{color:var(--on-dark)}
+.cta{margin-top:32px;background:var(--wheat);color:var(--ink);border-radius:16px;padding:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.cta strong{font-size:20px}
+.cta .btn{background:var(--forest);color:#fff}
+
+footer{background:var(--forest-deep);color:var(--on-dark-2);font-size:14px;padding:24px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+footer a{color:var(--accent-light)}
+
+@media (min-width:800px){
+  :root{--gutter:32px}
+  section{padding:88px 0}
+  .card{padding:32px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-name">Modelo de soporte</div>
+    <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">Crear ticket</a>
+  </div>
+</header>
+
+<main>
+  <section class="dark hero">
+    <div class="wrap">
+      <div class="eyebrow">Portal Interno del grupo</div>
+      <h1>Modelo de soporte</h1>
+      <p>Te damos la bienvenida. Así te ayudamos cuando lo necesites: un solo lugar para pedir ayuda y seguir tu caso hasta que se resuelva.</p>
+      <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">Ir a portal-interno.cnagro.cl →</a>
+      <div class="teams-inline">
+        <span><i style="background:oklch(0.65 0.13 230)"></i>Netsus</span>
+        <span><i style="background:oklch(0.65 0.13 60)"></i>ITSPACKS</span>
+        <span><i style="background:oklch(0.65 0.13 310)"></i>Desarrollo y Proyectos Holding</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Planificación</div>
+      <h2>Así comenzamos: 3 días</h2>
+      <div class="grid grid-2">
+        <article class="card" style="border-top:6px solid oklch(0.6 0.13 230)">
+          <div class="card-head">
+            <span class="mono" style="font-weight:500;color:oklch(0.42 0.12 230)">DÍAS 1 Y 2</span>
+            <span class="tag" style="background:oklch(0.95 0.03 230);color:oklch(0.42 0.12 230)">Presencial</span>
+          </div>
+          <h3>Puesta en marcha en tienda</h3>
+          <p>Personal técnico en tu tienda, apoyando:</p>
+          <ul class="ticks">
+            <li>Configuración de computadores con la información respaldada, incluido Office.</li>
+            <li>Configuración de la red e impresoras.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Santiago</span><span class="chip">Coquimbo</span><span class="chip">Lautaro</span><span class="chip">San Fernando</span><span class="chip">Chillán</span>
+          </div>
+        </article>
+        <article class="card card-dark" style="border-top:6px solid oklch(0.72 0.15 150)">
+          <div class="card-head">
+            <span class="mono" style="font-weight:500;color:var(--accent-light)">DÍA 3</span>
+            <span class="tag" style="background:oklch(0.72 0.15 150);color:var(--forest-deep)">Todas las tiendas</span>
+          </div>
+          <h3>Operación por tickets</h3>
+          <p>Desde este día, cada vez que necesites ayuda, crea un ticket en el Portal Interno del grupo.</p>
+          <a class="mono" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener" style="color:var(--accent-light);text-decoration:none;font-size:17px;margin-top:auto">portal-interno.cnagro.cl</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--ink)">● La regla más importante</div>
+      <h2>Sin ticket, no podemos atenderte.</h2>
+      <p>Ni por teléfono, ni por correo, ni en el pasillo. Toda solicitud se registra en el portal: así la atendemos, la priorizamos y le hacemos seguimiento.</p>
+      <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">portal-interno.cnagro.cl</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Equipos de soporte</div>
+      <h2>¿Quién atiende tu caso?</h2>
+      <div class="grid grid-4">
+        <article class="card team" style="--c:oklch(0.6 0.13 230);--t:oklch(0.95 0.035 230);--k:oklch(0.42 0.12 230)">
+          <span class="tag">Mesa de ayuda</span>
+          <div class="need">Si necesitas…</div>
+          <h3>Accesos, contraseñas, equipos o dudas de uso</h3>
+          <p>Diagnostican, resuelven y dejan documentada la solución en tu ticket.</p>
+          <div class="who"><small>Lo atiende</small><strong>Netsus</strong></div>
+        </article>
+        <article class="card team" style="--c:oklch(0.6 0.13 60);--t:oklch(0.95 0.035 60);--k:oklch(0.42 0.12 60)">
+          <span class="tag">Expertos JD Edwards</span>
+          <div class="need">Si necesitas…</div>
+          <h3>Resolver una falla o duda en el ERP JD Edwards</h3>
+          <p>Indica el módulo, el proceso afectado y el mensaje de error.</p>
+          <div class="who"><small>Lo atiende</small><strong>ITSPACKS</strong></div>
+        </article>
+        <article class="card team" style="--c:oklch(0.6 0.13 310);--t:oklch(0.95 0.035 310);--k:oklch(0.42 0.12 310)">
+          <span class="tag">Mejoras y proyectos</span>
+          <div class="need">Si necesitas…</div>
+          <h3>Un nuevo reporte, un cambio de proceso o un proyecto</h3>
+          <p>Evalúan alcance y prioridad, y lo coordinan con tu área.</p>
+          <div class="who"><small>Lo atiende</small><strong>Desarrollo y Proyectos Holding</strong></div>
+        </article>
+        <article class="card team" style="--c:oklch(0.6 0.13 150);--t:oklch(0.95 0.035 150);--k:oklch(0.42 0.12 150)">
+          <span class="tag">¿No sabes cuál?</span>
+          <div class="need">Si necesitas…</div>
+          <h3>Ayuda, pero no sabes dónde clasificarla</h3>
+          <p>Créalo igual. Netsus corrige la categoría y lo envía al equipo correcto.</p>
+          <div class="who"><small>Lo atiende</small><strong>Netsus reclasifica</strong></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Paso a paso</div>
+      <h2>Cómo crear tu ticket</h2>
+      <ol class="steps">
+        <li><span class="num">1</span><h3>Entra al portal</h3><p>Abre en tu navegador:<br><a class="url-box" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener" style="text-decoration:none">portal-interno.cnagro.cl</a></p></li>
+        <li><span class="num">2</span><h3>Inicia sesión</h3><p>Usa tu correo corporativo y su contraseña.</p></li>
+        <li><span class="num">3</span><h3>Clasifica tu caso</h3><p>Elige área de soporte, categoría, tipo y prioridad.</p></li>
+        <li><span class="num">4</span><h3>Describe tu caso</h3><p>Qué pasó, dónde y desde cuándo. Adjunta una captura si puedes.</p></li>
+        <li><span class="num">5</span><h3>Guarda tu número</h3><p>Recibirás un número de ticket para seguir su estado.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Tickets · Nuevo ticket</div>
+      <h2 style="margin-bottom:8px">Así se completa el formulario</h2>
+      <p class="swipe">Desliza la imagen hacia el lado y toca cada número.</p>
+      <div class="shot-scroll">
+        <div class="shot" id="shot">
+          <img src="assets/nuevo-ticket.png" alt="Formulario Nuevo Ticket del Portal Interno del grupo" width="1912" height="797" loading="lazy">
+        </div>
+      </div>
+      <ol class="fields" id="fields"></ol>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="eyebrow">Seguimiento</div>
+      <h2>En qué va tu ticket</h2>
+      <ol class="states">
+        <li><div class="row"><span class="n">01</span><span class="tag">Tú</span></div><h3>Nuevo</h3><p>Creaste tu ticket y recibiste tu número.</p></li>
+        <li><div class="row"><span class="n">02</span><span class="tag">Portal</span></div><h3>Asignado</h3><p>Tu caso llegó a la cola del equipo que corresponde.</p></li>
+        <li><div class="row"><span class="n">03</span><span class="tag">Equipo</span></div><h3>En atención</h3><p>El equipo está diagnosticando y resolviendo tu caso.</p></li>
+        <li class="turn"><div class="row"><span class="n">04</span><span class="tag">Tu turno</span></div><h3>Resuelto</h3><p>Te avisamos la solución. Revisa y confirma que funciona.</p></li>
+        <li><div class="row"><span class="n">05</span><span class="tag">Listo</span></div><h3>Cerrado</h3><p>Caso terminado. Puede llegarte una encuesta de satisfacción.</p></li>
+      </ol>
+      <div class="reopen">
+        <strong>¿El problema sigue?</strong>
+        <p>Respóndelo en el mismo ticket antes de que se cierre: se reabre y vuelve al equipo que lo atendió. Tu número no cambia, aunque el caso pase a otro equipo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Dudas comunes</div>
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq">
+        <details open><summary><span class="n">01</span>¿En qué tiendas habrá personas apoyando los Días 1 y 2?</summary><p>Los Días 1 y 2 tendremos apoyo presencial en Santiago, Coquimbo, Lautaro, San Fernando y Chillán.</p></details>
+        <details><summary><span class="n">02</span>¿Puedo pedir ayuda por teléfono o correo?</summary><p>Toda solicitud debe registrarse en el Portal Interno del grupo. Sin ticket no podemos atenderte ni hacer seguimiento.</p></details>
+        <details><summary><span class="n">03</span>¿Cómo sé en qué va mi ticket?</summary><p>Entra a portal-interno.cnagro.cl con tu correo corporativo y revisa el estado de tu ticket con tu número.</p></details>
+        <details><summary><span class="n">04</span>¿Puedo entrar desde mi celular?</summary><p>Sí. Abre portal-interno.cnagro.cl en el navegador de tu celular e ingresa con tu correo corporativo, igual que en el computador.</p></details>
+        <details><summary><span class="n">05</span>¿Qué información debo incluir?</summary><p>Qué pasó, dónde, desde cuándo y, si puedes, una captura de pantalla del error.</p></details>
+        <details><summary><span class="n">06</span>¿Qué hago si el problema vuelve a aparecer?</summary><p>Avísalo en el mismo ticket antes de que se cierre. Se reabre y vuelve al equipo que lo atendió.</p></details>
+        <details><summary><span class="n">07</span>¿Quién atiende mi caso?</summary><p>Depende de la categoría: Netsus para soporte general, ITSPACKS para JD Edwards y Desarrollo y Proyectos Holding para mejoras y proyectos.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="eyebrow">Para recordar</div>
+      <h2>4 cosas para recordar</h2>
+      <div class="rules">
+        <div><span class="n">01</span><div><h3>Siempre crea un ticket</h3><p>Sin ticket no podemos atenderte. Todo pasa por portal-interno.cnagro.cl</p></div></div>
+        <div><span class="n">02</span><div><h3>Elige bien la categoría</h3><p>Así tu caso llega directo a quien lo resuelve.</p></div></div>
+        <div><span class="n">03</span><div><h3>¿Te equivocaste? No pasa nada</h3><p>Netsus reclasifica tu ticket y lo envía al equipo correcto.</p></div></div>
+        <div><span class="n">04</span><div><h3>Guarda tu número de ticket</h3><p>Es el mismo de principio a fin, aunque cambie de equipo.</p></div></div>
+      </div>
+      <div class="cta">
+        <strong>¿Necesitas ayuda? Empieza aquí</strong>
+        <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">portal-interno.cnagro.cl →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Modelo de soporte · Portal Interno del grupo</span>
+    <a href="Soporte-Presentacion.dc.html">Ver como presentación</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // [left %, top %, título, explicación] sobre la captura del formulario
+  var SPOTS = [
+    [8.2, 19.1, 'Nuevo Ticket', 'En el menú de la izquierda, entra a Tickets y haz clic en "Nuevo Ticket" para abrir el formulario.'],
+    [9.6, 34.6, 'Área de soporte', 'Elige el área que debe atender tu caso, por ejemplo Informática.'],
+    [31.4, 34.6, 'Categoría', 'Incidente si algo dejó de funcionar, o Requerimiento si necesitas algo nuevo.'],
+    [53.2, 34.6, 'Tipo', 'Elige el equipo o sistema: Celular, Impresora, JD Edwards, Notebook, Office 365, Pantalla, Portal Agrocompra, Portal Cobranza, Portal Interno, Portal Smart, Power BI o SAP.'],
+    [75.0, 34.6, 'Prioridad', 'Baja, Media o Alta, según cuánto afecta tu trabajo.'],
+    [9.6, 49.3, 'Título y teléfono', 'Resume el problema en una frase y deja un teléfono de contacto.'],
+    [9.6, 58, 'Descripción', 'Qué pasó, dónde, desde cuándo y los pasos para repetir el problema.'],
+    [9.6, 75.3, 'Adjuntos', 'Capturas o archivos JPG, PNG, PDF, Word o Excel. Máximo 20 MB.'],
+    [9.6, 93, 'Crear Ticket', 'Envía tu caso. Recibirás tu número de ticket para seguirlo.']
+  ];
+  var shot = document.getElementById('shot');
+  var list = document.getElementById('fields');
+  var buttons = [], items = [];
+
+  function select(i, scroll) {
+    buttons.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    items.forEach(function (li, k) { li.classList.toggle('on', k === i); });
+    if (scroll) items[i].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  SPOTS.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'spot';
+    b.style.left = s[0] + '%';
+    b.style.top = s[1] + '%';
+    b.textContent = i + 1;
+    b.setAttribute('aria-label', (i + 1) + '. ' + s[2]);
+    b.addEventListener('click', function () { select(i, true); });
+    shot.appendChild(b);
+    buttons.push(b);
+
+    var li = document.createElement('li');
+    li.innerHTML = '<span class="n"></span><div><strong></strong><span></span></div>';
+    li.querySelector('.n').textContent = i + 1;
+    li.querySelector('strong').textContent = s[2];
+    li.querySelector('div span').textContent = s[3];
+    li.addEventListener('click', function () { select(i, false); });
+    list.appendChild(li);
+    items.push(li);
+  });
+  select(0, false);
+})();
+</script>
+</body>
+</html>
