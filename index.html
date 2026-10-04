@@ -101,15 +101,6 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .spot[aria-pressed="true"]{background:oklch(0.55 0.14 150);box-shadow:0 0 0 6px oklch(0.6 0.13 150 / .3)}
 .swipe{font-size:14px;color:var(--ink-3);margin-top:-4px}
 @media (min-width:800px){.swipe{display:none}.shot-scroll{overflow:visible;margin:0;padding:18px 0}}
-.fields{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
-@media (min-width:800px){.fields{grid-template-columns:1fr 1fr}}
-.fields li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:border-color .2s,background .2s;scroll-margin:80px}
-.fields li.on{border:2px solid var(--accent);padding:13px 15px}
-.fields .n{width:32px;height:32px;border-radius:50%;background:var(--forest);color:#fff;font-family:var(--mono);font-size:15px;display:flex;align-items:center;justify-content:center}
-.fields li.on .n{background:var(--accent)}
-.fields strong{display:block;font-size:17px}
-.fields span{color:var(--ink-2);font-size:16px}
-.fields li.group{display:block;background:none;border:0;padding:14px 2px 0;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);grid-column:1/-1}
 .ready{margin-bottom:16px}
 .ready .ticks li::before,.tips .ticks li::before{background:var(--accent)}
 .ticks li strong{font-weight:600}
@@ -337,7 +328,6 @@ footer a{color:var(--accent-light)}
           <button type="button" class="c-next">Siguiente →</button>
         </div>
       </div>
-      <ol class="fields" id="fields"></ol>
       <div class="card tips">
         <h3>Errores comunes</h3>
         <ul class="ticks">
@@ -423,15 +413,11 @@ footer a{color:var(--accent-light)}
     [9.6, 75.3, 'Adjuntos', 'Capturas o archivos JPG, PNG, PDF, Word o Excel. Máximo 20 MB.'],
     [9.6, 93, 'Crear Ticket', 'Envía tu caso. Recibirás tu número de ticket para seguirlo.']
   ];
-  // Encabezados de grupo en la lista: aparecen antes del campo indicado
-  var GROUPS = { 0: 'Abrir el formulario', 1: 'Clasificar', 5: 'Describir', 8: 'Enviar' };
   var shot = document.getElementById('shot');
-  var list = document.getElementById('fields');
-  var buttons = [], items = [];
+  var buttons = [];
 
   function select(i, scroll) {
     buttons.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
-    items.forEach(function (li, k) { li.classList.toggle('on', k === i); });
     current = i;
     callout.querySelector('.c-num').textContent = i + 1;
     callout.querySelector('.c-title').textContent = SPOTS[i][2];
@@ -452,21 +438,6 @@ footer a{color:var(--accent-light)}
     b.addEventListener('click', function () { select(i, true); });
     shot.appendChild(b);
     buttons.push(b);
-
-    if (GROUPS[i]) {
-      var g = document.createElement('li');
-      g.className = 'group';
-      g.textContent = GROUPS[i];
-      list.appendChild(g);
-    }
-    var li = document.createElement('li');
-    li.innerHTML = '<span class="n"></span><div><strong></strong><span></span></div>';
-    li.querySelector('.n').textContent = i + 1;
-    li.querySelector('strong').textContent = s[2];
-    li.querySelector('div span').textContent = s[3];
-    li.addEventListener('click', function () { select(i, false); });
-    list.appendChild(li);
-    items.push(li);
   });
   var callout = document.getElementById('callout');
   var current = 0;
