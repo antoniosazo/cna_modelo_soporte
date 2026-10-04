@@ -109,6 +109,14 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .fields li.on .n{background:var(--accent)}
 .fields strong{display:block;font-size:17px}
 .fields span{color:var(--ink-2);font-size:16px}
+.fields li.group{display:block;background:none;border:0;padding:14px 2px 0;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);grid-column:1/-1}
+.ready{margin-bottom:16px}
+.ready .ticks li::before,.tips .ticks li::before{background:var(--accent)}
+.ticks li strong{font-weight:600}
+.tips{margin-top:24px}
+.after{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--forest);color:#fff;display:grid;gap:6px}
+.after p{color:var(--on-dark)}
+.after strong{font-size:18px}
 
 /* Estados */
 .states{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -272,13 +280,26 @@ footer a{color:var(--accent-light)}
     <div class="wrap">
       <div class="eyebrow">Paso a paso</div>
       <h2>Cómo crear tu ticket</h2>
+      <div class="card ready">
+        <h3>Antes de empezar, ten a mano:</h3>
+        <ul class="ticks">
+          <li>Tu correo corporativo y tu contraseña</li>
+          <li>Qué pasó, dónde y desde cuándo</li>
+          <li>Un teléfono de contacto</li>
+          <li>Una captura del error, si puedes</li>
+        </ul>
+      </div>
       <ol class="steps">
         <li><span class="num">1</span><h3>Entra al portal</h3><p>Abre en tu navegador:<br><a class="url-box" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener" style="text-decoration:none">portal-interno.cnagro.cl</a></p></li>
         <li><span class="num">2</span><h3>Inicia sesión</h3><p>Usa tu correo corporativo y su contraseña.</p></li>
-        <li><span class="num">3</span><h3>Clasifica tu caso</h3><p>Elige área de soporte, categoría, tipo y prioridad.</p></li>
+        <li><span class="num">3</span><h3>Clasifica tu caso</h3><p>Elige área de soporte, categoría, tipo y prioridad. Si no estás seguro, elige lo más cercano: Netsus lo reclasifica.</p></li>
         <li><span class="num">4</span><h3>Describe tu caso</h3><p>Qué pasó, dónde y desde cuándo. Adjunta una captura si puedes.</p></li>
-        <li><span class="num">5</span><h3>Guarda tu número</h3><p>Recibirás un número de ticket para seguir su estado.</p></li>
+        <li><span class="num">5</span><h3>Guarda tu número</h3><p>Lo necesitarás para seguir tu caso. Es el mismo aunque cambie de equipo.</p></li>
       </ol>
+      <div class="after">
+        <strong>Al enviar, verás tu ticket en estado Nuevo.</strong>
+        <p>Desde ahí puedes seguir su avance en portal-interno.cnagro.cl con tu número.</p>
+      </div>
     </div>
   </section>
 
@@ -293,6 +314,15 @@ footer a{color:var(--accent-light)}
         </div>
       </div>
       <ol class="fields" id="fields"></ol>
+      <div class="card tips">
+        <h3>Errores comunes</h3>
+        <ul class="ticks">
+          <li><strong>Sin ticket no hay atención.</strong> No lo envíes por correo, teléfono ni en el pasillo.</li>
+          <li><strong>¿Elegiste mal?</strong> No pasa nada. Netsus reclasifica tu caso y conserva el mismo número.</li>
+          <li><strong>Describe el problema con detalle.</strong> Qué pasó, dónde y desde cuándo es lo que más acelera la solución.</li>
+          <li><strong>¿Volvió el problema?</strong> Avísalo en el mismo ticket antes de que se cierre.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -369,6 +399,8 @@ footer a{color:var(--accent-light)}
     [9.6, 75.3, 'Adjuntos', 'Capturas o archivos JPG, PNG, PDF, Word o Excel. Máximo 20 MB.'],
     [9.6, 93, 'Crear Ticket', 'Envía tu caso. Recibirás tu número de ticket para seguirlo.']
   ];
+  // Encabezados de grupo en la lista: aparecen antes del campo indicado
+  var GROUPS = { 0: 'Abrir el formulario', 1: 'Clasificar', 5: 'Describir', 8: 'Enviar' };
   var shot = document.getElementById('shot');
   var list = document.getElementById('fields');
   var buttons = [], items = [];
@@ -391,6 +423,12 @@ footer a{color:var(--accent-light)}
     shot.appendChild(b);
     buttons.push(b);
 
+    if (GROUPS[i]) {
+      var g = document.createElement('li');
+      g.className = 'group';
+      g.textContent = GROUPS[i];
+      list.appendChild(g);
+    }
     var li = document.createElement('li');
     li.innerHTML = '<span class="n"></span><div><strong></strong><span></span></div>';
     li.querySelector('.n').textContent = i + 1;
