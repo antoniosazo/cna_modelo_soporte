@@ -55,7 +55,7 @@ Solo estado local de UI: `spot: number` y `faq: number`. No hay carga de datos.
 - `assets/portal-cna.png` — captura del login del portal (no se usa en la versión actual).
 
 ## Files
-- `index.html` — versión web responsive (pensada primero para celular) con el mismo contenido. Incluye un formulario de práctica paso a paso (8 pasos, validación en el navegador, nada se envía ni se guarda). En pantallas de 820 px o menos, la presentación redirige aquí (`?deck` fuerza la presentación).
+- `index.html` — versión web responsive (pensada primero para celular) con el mismo contenido. El formulario se explica con la captura y 9 números: al tocar uno, una tarjeta muestra qué hacer en ese campo. En pantallas de 820 px o menos, la presentación redirige aquí (`?deck` fuerza la presentación).
 - `Soporte-Presentacion.dc.html` — prototipo completo (template y lógica).
 - `deck-stage.js` — web component del shell de slides.
 - `support.js` — runtime del prototipo (solo para verlo; no se porta).

@@ -100,83 +100,16 @@ main section[id]{scroll-margin-top:100px}
 .steps p{color:var(--ink-2);font-size:16px}
 .url-box{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:8px;background:oklch(0.95 0.04 150);color:oklch(0.38 0.11 150);font-family:var(--mono);font-size:14px;font-weight:500;word-break:break-all}
 
-/* Formulario de práctica */
-.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.where{display:inline-block;margin:-12px 0 20px;padding:8px 12px;border-radius:10px;background:oklch(0.95 0.04 150);color:oklch(0.35 0.1 150);font-size:15px}
-.sim{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(20,25,30,.06)}
-.sim-top{padding:16px 18px;border-bottom:1px solid var(--line);display:grid;gap:8px;background:var(--card-soft)}
-.sim-pos{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink)}
-.sim-bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
-.sim-bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
-.sim-steps{list-style:none;margin:0;padding:0}
-.sstep{border-bottom:1px solid var(--line);scroll-margin-top:110px}
-.sstep:last-child{border-bottom:0}
-.sstep-head{width:100%;display:grid;grid-template-columns:36px 1fr 24px;gap:12px;align-items:center;padding:12px 18px;min-height:64px;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
-.sstep-head:disabled{cursor:default;opacity:.45}
-.sstep-head:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
-.sn{width:36px;height:36px;border-radius:50%;background:var(--line);color:var(--ink-2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px}
-.sstep.open .sn{background:var(--accent);color:#fff}
-.sstep.done .sn{background:var(--forest);color:#fff}
-.st{font-weight:600;font-size:17px;line-height:1.25;min-width:0}
-.st small{display:block;font-weight:400;font-size:14px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sc{color:var(--accent-ink);font-size:18px;text-align:center;visibility:hidden}
-.sstep.done .sc{visibility:visible}
-.sstep-body{display:none;padding:0 18px 22px 66px}
-.sstep.open .sstep-body{display:grid;gap:14px}
-@media (max-width:480px){.sstep-body{padding:0 16px 20px}}
-.stip{color:var(--ink-2);font-size:16px}
-.sfb{background:oklch(0.95 0.04 150);color:oklch(0.35 0.1 150);border-radius:12px;padding:10px 14px;font-size:15px}
-.sfb:empty{display:none}
-.opts{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0;min-width:0}
-.opts.cards{display:grid;grid-template-columns:1fr;gap:10px}
-@media (min-width:560px){.opts.cards{grid-template-columns:1fr 1fr}}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;width:1px;height:1px}
-.opt span{display:flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card-soft);font-size:15px;font-weight:500;cursor:pointer;transition:background .15s,border-color .15s}
-.opts.cards .opt span{display:block;border-radius:14px;padding:14px 16px;font-size:17px;font-weight:600}
-.opt span small{display:block;font-weight:400;color:var(--ink-2);font-size:14px;margin-top:2px}
-.opt input:checked + span{background:var(--forest);border-color:var(--forest);color:#fff}
-.opt input:checked + span small{color:var(--on-dark)}
-.opt input:focus-visible + span{outline:3px solid var(--accent);outline-offset:2px}
-.field{display:grid;gap:6px}
-.field label{font-weight:600;font-size:15px}
-.field input[type=text],.field input[type=tel],.field textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid var(--line-strong);background:#fff;color:var(--ink)}
-.field textarea{min-height:160px;resize:vertical;line-height:1.45}
-.field input:focus,.field textarea:focus{outline:3px solid oklch(0.6 0.13 150 / .35);border-color:var(--accent)}
-.count{font-size:13px;color:var(--ink-3)}
-.linkbtn{justify-self:start;background:none;border:1px dashed var(--accent);color:var(--accent-ink);border-radius:10px;min-height:44px;padding:0 14px;font:inherit;font-size:15px;font-weight:500;cursor:pointer}
-.checklist{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--ink-3)}
-.checklist li::before{content:'○ '}
-.checklist li.ok{color:var(--accent-ink);font-weight:500}
-.checklist li.ok::before{content:'✓ '}
-.filebox{display:grid;gap:8px;padding:16px;border:2px dashed var(--line-strong);border-radius:14px;background:var(--card-soft)}
-.filebox input{font:inherit;font-size:15px;max-width:100%}
-.filemsg{font-size:15px}
-.filemsg.good{color:var(--accent-ink);font-weight:500}
-.filemsg.bad{color:#a3301f;font-weight:500}
-.serr{color:#a3301f;font-size:15px;font-weight:500}
-.serr:empty{display:none}
-.sstep-nav{display:flex;gap:10px}
-.sbtn{min-height:48px;padding:0 20px;border-radius:12px;font:inherit;font-size:16px;font-weight:600;cursor:pointer;border:1px solid var(--line-strong);background:#fff;color:var(--ink)}
-.sbtn.primary{background:var(--forest);border-color:var(--forest);color:#fff;flex:1}
-.sbtn.primary:hover{background:#28432f}
-.review{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.review li{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:15px}
-.review li:last-child{border-bottom:0}
-.review b{color:var(--ink-3);font-weight:500}
-.review span{overflow-wrap:anywhere}
-.sim-done{padding:28px 22px;display:grid;gap:14px;background:var(--forest);color:#fff}
-.sim-done[hidden]{display:none}
-.sim-done h3{font-size:26px;font-weight:600}
-.sim-done p{color:var(--on-dark)}
-.ticket-ph{font-family:var(--mono);font-size:16px;padding:12px 16px;border:2px dashed var(--accent-light);border-radius:12px;color:var(--accent-light)}
-.done-actions{display:flex;flex-wrap:wrap;gap:10px}
-.done-actions .sbtn{background:transparent;color:#fff;border-color:var(--forest-rule)}
-.shot-ref{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:14px}
-.shot-ref summary{cursor:pointer;padding:14px 18px;font-weight:600;min-height:52px;display:flex;align-items:center}
-.shot-ref .inner{padding:0 18px 18px;display:grid;gap:8px}
-.shot-ref img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
-.shot-ref p{font-size:14px;color:var(--ink-3)}
+/* Formulario */
+.shot-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(var(--gutter) * -1);padding:18px var(--gutter) 18px}
+.shot{position:relative;min-width:760px;aspect-ratio:1640/684}
+.shot img{width:100%;height:100%;display:block;border-radius:12px;border:1px solid #e0d7c4;box-shadow:0 12px 30px rgba(20,25,30,.1)}
+.spot{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:var(--forest);color:#fff;font-family:var(--mono);font-size:15px;font-weight:500;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25);transition:background .2s,box-shadow .2s;padding:0}
+.spot[aria-pressed="true"]{background:oklch(0.55 0.14 150);box-shadow:0 0 0 6px oklch(0.6 0.13 150 / .3)}
+.hint{font-size:15px;color:var(--ink-3)}
+@media (min-width:800px){.shot-scroll{overflow:visible;margin:0;padding:18px 0}}
+.c-bar{height:4px;border-radius:2px;background:var(--forest-line);overflow:hidden}
+.c-bar i{display:block;height:100%;background:var(--accent-light);transition:width .25s ease}
 .lead{font-size:18px;color:var(--ink-2);margin-bottom:28px}
 .ready{margin-bottom:16px}
 .ready .ticks li::before{background:var(--accent)}
@@ -184,6 +117,16 @@ main section[id]{scroll-margin-top:100px}
 .after{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--forest);color:#fff;display:grid;gap:6px}
 .after p{color:var(--on-dark)}
 .after strong{font-size:18px}
+.callout{margin-top:16px;background:var(--forest);color:#fff;border-radius:18px;padding:22px;display:grid;gap:14px;border-top:6px solid var(--accent-light)}
+.callout-head{display:flex;gap:16px;align-items:center}
+.c-num{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:22px}
+.c-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-light)}
+.c-title{font-size:22px;font-weight:600;line-height:1.2}
+.c-text{color:var(--on-dark);font-size:18px;line-height:1.45}
+.callout-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.callout-nav button{min-height:44px;border-radius:12px;border:1px solid var(--forest-rule);background:var(--forest-card);color:#fff;font:inherit;font-size:16px;font-weight:500;cursor:pointer}
+.callout-nav button:disabled{opacity:.4;cursor:default}
+.callout-nav button:not(:disabled):hover{background:var(--forest-line)}
 
 /* Estados */
 .states{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -252,7 +195,7 @@ footer a{color:var(--accent-light)}
       <a href="#plan">3 días</a>
       <a href="#equipos">Equipos</a>
       <a href="#crear">Crear ticket</a>
-      <a href="#formulario">Practicar</a>
+      <a href="#formulario">Formulario</a>
       <a href="#estados">Seguimiento</a>
       <a href="#faq">Preguntas</a>
       <a href="#recordar">Recordar</a>
@@ -386,131 +329,28 @@ footer a{color:var(--accent-light)}
   <section id="formulario" style="padding-top:0">
     <div class="wrap">
       <div class="eyebrow">Tickets · Nuevo ticket</div>
-      <h2 style="margin-bottom:10px">Practica tu primer ticket</h2>
-      <p class="lead">Completa los mismos campos que verás en el portal, uno a uno. Es solo práctica: <strong>nada de lo que escribas se envía ni se guarda.</strong></p>
-      <p class="where">En el portal: menú <strong>Tickets → Nuevo Ticket</strong></p>
-
-      <div class="sim">
-        <div class="sim-top">
-          <div class="sim-pos" id="simPos" aria-live="polite">Paso 1 de 8</div>
-          <div class="sim-bar" aria-hidden="true"><i id="simBar"></i></div>
-        </div>
-
-        <form id="simForm" novalidate>
-          <ol class="sim-steps">
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">1</span><span class="st">Área de soporte<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Elige el área que debe atender tu caso. En el portal verás la lista completa.</p>
-                <fieldset class="opts">
-                  <legend class="sr">Área de soporte</legend>
-                  <label class="opt"><input type="radio" name="area" value="Informática"><span>Informática</span></label>
-                </fieldset>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">2</span><span class="st">Categoría<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">¿Algo dejó de funcionar o necesitas algo nuevo?</p>
-                <fieldset class="opts cards">
-                  <legend class="sr">Categoría</legend>
-                  <label class="opt"><input type="radio" name="cat" value="Incidente"><span>Incidente<small>Algo dejó de funcionar.</small></span></label>
-                  <label class="opt"><input type="radio" name="cat" value="Requerimiento"><span>Requerimiento<small>Necesitas algo nuevo.</small></span></label>
-                </fieldset>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">3</span><span class="st">Tipo<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">¿Qué equipo o sistema tiene el problema?</p>
-                <fieldset class="opts" id="tipoOpts">
-                  <legend class="sr">Tipo</legend>
-                </fieldset>
-                <p class="sfb" id="tipoFb"></p>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">4</span><span class="st">Prioridad<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Elige según cuánto afecta tu trabajo.</p>
-                <fieldset class="opts">
-                  <legend class="sr">Prioridad</legend>
-                  <label class="opt"><input type="radio" name="prio" value="Baja"><span>Baja</span></label>
-                  <label class="opt"><input type="radio" name="prio" value="Media"><span>Media</span></label>
-                  <label class="opt"><input type="radio" name="prio" value="Alta"><span>Alta</span></label>
-                </fieldset>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">5</span><span class="st">Título y teléfono<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Resume el problema en una frase, como si fuera el asunto de un correo.</p>
-                <div class="field">
-                  <label for="fTitulo">Título</label>
-                  <input type="text" id="fTitulo" maxlength="100" autocomplete="off" placeholder="Ej.: La impresora de caja no imprime">
-                  <span class="count" id="tituloCount">0 / 100</span>
-                </div>
-                <div class="field">
-                  <label for="fTel">Teléfono de contacto</label>
-                  <input type="tel" id="fTel" inputmode="tel" autocomplete="off" placeholder="Ej.: +56 9 1234 5678">
-                </div>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">6</span><span class="st">Descripción<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Mientras más claro, más rápido te ayudamos. Usa la plantilla para no olvidar nada.</p>
-                <button type="button" class="linkbtn" id="tplBtn">Usar plantilla</button>
-                <div class="field">
-                  <label for="fDesc">Descripción</label>
-                  <textarea id="fDesc" placeholder="Qué pasó, dónde, desde cuándo y los pasos para repetir el problema."></textarea>
-                </div>
-                <ul class="checklist" id="descCheck">
-                  <li data-k="Qué pasó">Qué pasó</li>
-                  <li data-k="Dónde">Dónde</li>
-                  <li data-k="Desde cuándo">Desde cuándo</li>
-                  <li data-k="Pasos para repetirlo">Pasos para repetirlo</li>
-                </ul>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">7</span><span class="st">Adjuntos <span style="font-weight:400;color:var(--ink-3)">(opcional)</span><small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Una captura del error ayuda mucho. Se aceptan JPG, PNG, PDF, Word o Excel, de hasta 20 MB.</p>
-                <div class="filebox">
-                  <input type="file" id="fFile" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.xls,.xlsx">
-                  <span class="filemsg" id="fileMsg" aria-live="polite">Prueba con un archivo: solo revisamos que sirva, no se sube.</span>
-                </div>
-              </div>
-            </li>
-            <li class="sstep">
-              <button type="button" class="sstep-head"><span class="sn">8</span><span class="st">Revisar y crear<small></small></span><span class="sc" aria-hidden="true">✓</span></button>
-              <div class="sstep-body">
-                <p class="stip">Así quedaría tu ticket. Toca cualquier paso de arriba para corregirlo.</p>
-                <ul class="review" id="review"></ul>
-              </div>
-            </li>
-          </ol>
-        </form>
-
-        <div class="sim-done" id="simDone" hidden tabindex="-1">
-          <h3>¡Listo! Así se crea un ticket.</h3>
-          <p>En el portal, al apretar <strong>Crear Ticket</strong> recibirás tu número. Guárdalo: es el mismo de principio a fin.</p>
-          <div class="ticket-ph">N.º de ticket: aparecerá aquí en el portal</div>
-          <div class="done-actions">
-            <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">Crear mi ticket real →</a>
-            <button type="button" class="sbtn" id="simAgain">Practicar de nuevo</button>
-          </div>
+      <h2 style="margin-bottom:8px">Así se completa el formulario</h2>
+      <p class="hint">Toca un número en la imagen o usa <strong>Siguiente</strong> para recorrer los 9 campos.</p>
+      <div class="shot-scroll" id="shotScroll">
+        <div class="shot" id="shot">
+          <img src="assets/nuevo-ticket.png" alt="Formulario Nuevo Ticket del Portal Interno del grupo" width="1912" height="797" loading="lazy">
         </div>
       </div>
-
-      <details class="shot-ref">
-        <summary>Ver cómo se ve el formulario en el portal</summary>
-        <div class="inner">
-          <a href="assets/nuevo-ticket.png" target="_blank" rel="noopener"><img src="assets/nuevo-ticket.png" alt="Formulario Nuevo Ticket del Portal Interno del grupo" width="1912" height="797" loading="lazy"></a>
-          <p>Toca la imagen para verla en grande.</p>
+      <div class="callout" id="callout" aria-live="polite">
+        <div class="callout-head">
+          <span class="c-num">1</span>
+          <div>
+            <div class="c-kicker">Campo <span class="c-pos">1</span> de 9</div>
+            <strong class="c-title"></strong>
+          </div>
         </div>
-      </details>
+        <p class="c-text"></p>
+        <div class="c-bar" aria-hidden="true"><i></i></div>
+        <div class="callout-nav">
+          <button type="button" class="c-prev">← Anterior</button>
+          <button type="button" class="c-next">Siguiente →</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -574,199 +414,58 @@ footer a{color:var(--accent-light)}
 </footer>
 
 <script>
-// Formulario de práctica: todo ocurre en el navegador, nada se envía ni se guarda
 (function () {
-  var form = document.getElementById('simForm');
-  var steps = Array.prototype.slice.call(form.querySelectorAll('.sstep'));
-  var posEl = document.getElementById('simPos');
-  var barEl = document.getElementById('simBar');
-  var done = document.getElementById('simDone');
-  var titulo = document.getElementById('fTitulo');
-  var tel = document.getElementById('fTel');
-  var desc = document.getElementById('fDesc');
-  var file = document.getElementById('fFile');
-  var fileMsg = document.getElementById('fileMsg');
-  var TIPOS = ['Celular', 'Impresora', 'JD Edwards', 'Notebook', 'Office 365', 'Pantalla', 'Portal Agrocompra', 'Portal Cobranza', 'Portal Interno', 'Portal Smart', 'Power BI', 'SAP'];
-  var TEMPLATE = 'Qué pasó: \nDónde: \nDesde cuándo: \nPasos para repetirlo: ';
-  var EXT = ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx', 'xls', 'xlsx'];
-  var MAX = 20 * 1024 * 1024;
-  var current = 0, reached = 0;
-
-  var tipoBox = document.getElementById('tipoOpts');
-  TIPOS.forEach(function (t) {
-    var l = document.createElement('label');
-    l.className = 'opt';
-    l.innerHTML = '<input type="radio" name="tipo"><span></span>';
-    l.querySelector('input').value = t;
-    l.querySelector('span').textContent = t;
-    tipoBox.appendChild(l);
-  });
-
-  function radio(name) {
-    var r = form.querySelector('input[name="' + name + '"]:checked');
-    return r ? r.value : '';
-  }
-  function digits(s) { return s.replace(/\D/g, '').length; }
-  function mb(n) { return (n / 1048576).toFixed(1).replace('.', ',') + ' MB'; }
-  function fileError() {
-    var f = file.files && file.files[0];
-    if (!f) return '';
-    var ext = (f.name.split('.').pop() || '').toLowerCase();
-    if (EXT.indexOf(ext) < 0) return 'Ese formato no se acepta. Usa JPG, PNG, PDF, Word o Excel.';
-    if (f.size > MAX) return 'El archivo pesa ' + mb(f.size) + '. El máximo es 20 MB.';
-    return '';
-  }
-
-  // Por paso: resumen para el encabezado y validación (mensaje vacío = OK)
-  var DEF = [
-    { label: 'Área', sum: function () { return radio('area'); }, check: function () { return radio('area') ? '' : 'Elige un área para continuar.'; } },
-    { label: 'Categoría', sum: function () { return radio('cat'); }, check: function () { return radio('cat') ? '' : 'Elige Incidente o Requerimiento.'; } },
-    { label: 'Tipo', sum: function () { return radio('tipo'); }, check: function () { return radio('tipo') ? '' : 'Elige el equipo o sistema.'; } },
-    { label: 'Prioridad', sum: function () { return radio('prio'); }, check: function () { return radio('prio') ? '' : 'Elige una prioridad.'; } },
-    { label: 'Título', sum: function () { return titulo.value.trim(); }, check: function () {
-      if (titulo.value.trim().length < 10) return 'Escribe un título un poco más claro (al menos 10 caracteres).';
-      if (digits(tel.value) < 8) return 'Deja un teléfono de contacto (al menos 8 dígitos).';
-      return '';
-    } },
-    { label: 'Descripción', sum: function () { return desc.value.replace(/\s+/g, ' ').trim(); }, check: function () {
-      return desc.value.replace(/(Qué pasó|Dónde|Desde cuándo|Pasos para repetirlo):/g, '').trim().length < 20 ? 'Cuéntanos un poco más: qué pasó, dónde y desde cuándo.' : '';
-    } },
-    { label: 'Adjunto', sum: function () { var f = file.files && file.files[0]; return f ? f.name : 'Sin adjuntos'; }, check: fileError },
-    { label: '', sum: function () { return ''; }, check: function () { return ''; } }
+  // [left %, top %, título, explicación] sobre la captura del formulario
+  var SPOTS = [
+    [8.2, 19.1, 'Nuevo Ticket', 'En el menú de la izquierda, entra a Tickets y haz clic en "Nuevo Ticket" para abrir el formulario.'],
+    [9.6, 34.6, 'Área de soporte', 'Elige el área que debe atender tu caso, por ejemplo Informática.'],
+    [31.4, 34.6, 'Categoría', 'Incidente si algo dejó de funcionar, o Requerimiento si necesitas algo nuevo.'],
+    [53.2, 34.6, 'Tipo', 'Elige el equipo o sistema: Celular, Impresora, JD Edwards, Notebook, Office 365, Pantalla, Portal Agrocompra, Portal Cobranza, Portal Interno, Portal Smart, Power BI o SAP.'],
+    [75.0, 34.6, 'Prioridad', 'Baja, Media o Alta, según cuánto afecta tu trabajo.'],
+    [9.6, 49.3, 'Título y teléfono', 'Resume el problema en una frase y deja un teléfono de contacto.'],
+    [9.6, 58, 'Descripción', 'Qué pasó, dónde, desde cuándo y los pasos para repetir el problema.'],
+    [9.6, 75.3, 'Adjuntos', 'Capturas o archivos JPG, PNG, PDF, Word o Excel. Máximo 20 MB.'],
+    [9.6, 93, 'Crear Ticket', 'Envía tu caso. Recibirás tu número de ticket para seguirlo.']
   ];
+  var shot = document.getElementById('shot');
+  var buttons = [];
 
-  steps.forEach(function (li, i) {
-    var body = li.querySelector('.sstep-body');
-    var err = document.createElement('p');
-    err.className = 'serr';
-    err.setAttribute('role', 'alert');
-    body.appendChild(err);
-    var nav = document.createElement('div');
-    nav.className = 'sstep-nav';
-    if (i > 0) nav.innerHTML = '<button type="button" class="sbtn sback">← Atrás</button>';
-    var next = document.createElement('button');
-    next.type = 'button';
-    next.className = 'sbtn primary snext';
-    next.textContent = i === steps.length - 1 ? 'Crear ticket (práctica)' : 'Siguiente →';
-    nav.appendChild(next);
-    body.appendChild(nav);
-
-    li.querySelector('.sstep-head').addEventListener('click', function () { if (i <= reached) open(i, true); });
-    next.addEventListener('click', function () { advance(i); });
-    var back = nav.querySelector('.sback');
-    if (back) back.addEventListener('click', function () { open(i - 1, true); });
-  });
-
-  function open(i, scroll) {
+  function select(i, scroll) {
+    buttons.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
     current = i;
-    steps.forEach(function (li, k) {
-      li.classList.toggle('open', k === i);
-      var head = li.querySelector('.sstep-head');
-      head.setAttribute('aria-expanded', k === i ? 'true' : 'false');
-      head.disabled = k > reached;
-    });
-    posEl.textContent = 'Paso ' + (i + 1) + ' de ' + steps.length;
-    barEl.style.width = (i / (steps.length - 1) * 100) + '%';
-    if (i === steps.length - 1) fillReview();
-    if (scroll) steps[i].scrollIntoView({ block: 'start', behavior: 'smooth' });
-  }
-
-  function advance(i) {
-    var msg = DEF[i].check();
-    steps[i].querySelector('.serr').textContent = msg;
-    if (msg) return;
-    if (i === steps.length - 1) return finish();
-    steps[i].classList.add('done');
-    steps[i].querySelector('.st small').textContent = DEF[i].sum();
-    reached = Math.max(reached, i + 1);
-    open(i + 1, true);
-  }
-
-  function fillReview() {
-    var ul = document.getElementById('review');
-    ul.innerHTML = '';
-    DEF.slice(0, -1).forEach(function (d) {
-      var li = document.createElement('li');
-      li.innerHTML = '<b></b><span></span>';
-      li.querySelector('b').textContent = d.label;
-      var v = d.sum();
-      li.querySelector('span').textContent = v.length > 120 ? v.slice(0, 120) + '…' : v;
-      ul.appendChild(li);
-    });
-    var t = document.createElement('li');
-    t.innerHTML = '<b>Teléfono</b><span></span>';
-    t.querySelector('span').textContent = tel.value.trim();
-    ul.insertBefore(t, ul.children[5]);
-  }
-
-  function finish() {
-    // Un paso ya completado pudo editarse después: revisa todo antes de terminar
-    for (var k = 0; k < steps.length - 1; k++) {
-      var msg = DEF[k].check();
-      if (msg) { open(k, true); steps[k].querySelector('.serr').textContent = msg; return; }
+    callout.querySelector('.c-num').textContent = i + 1;
+    callout.querySelector('.c-pos').textContent = i + 1;
+    callout.querySelector('.c-bar i').style.width = ((i + 1) / SPOTS.length * 100) + '%';
+    // En celular la captura se desliza: centra el número activo en la vista
+    var sc = document.getElementById('shotScroll');
+    if (sc.scrollWidth > sc.clientWidth) {
+      var x = SPOTS[i][0] / 100 * shot.offsetWidth - sc.clientWidth / 2;
+      sc.scrollTo({ left: Math.max(0, x), behavior: scroll ? 'smooth' : 'auto' });
     }
-    steps[steps.length - 1].classList.add('done');
-    form.hidden = true;
-    done.hidden = false;
-    posEl.textContent = 'Práctica completa';
-    barEl.style.width = '100%';
-    done.focus({ preventScroll: true });
-    done.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    callout.querySelector('.c-title').textContent = SPOTS[i][2];
+    callout.querySelector('.c-text').textContent = SPOTS[i][3];
+    callout.querySelector('.c-prev').disabled = i === 0;
+    callout.querySelector('.c-next').disabled = i === SPOTS.length - 1;
+    if (scroll) callout.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
-  // Retroalimentación en vivo
-  form.addEventListener('change', function (e) {
-    if (e.target.name === 'tipo') {
-      document.getElementById('tipoFb').textContent = e.target.value === 'JD Edwards' ? 'Las fallas y dudas de JD Edwards las atiende ITSPACKS.' : '';
-    }
-    var li = e.target.closest('.sstep');
-    if (li) li.querySelector('.serr').textContent = '';
+  SPOTS.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'spot';
+    b.style.left = s[0] + '%';
+    b.style.top = s[1] + '%';
+    b.textContent = i + 1;
+    b.setAttribute('aria-label', (i + 1) + '. ' + s[2]);
+    b.addEventListener('click', function () { select(i, true); });
+    shot.appendChild(b);
+    buttons.push(b);
   });
-  titulo.addEventListener('input', function () {
-    document.getElementById('tituloCount').textContent = titulo.value.length + ' / 100';
-  });
-  function checkDesc() {
-    Array.prototype.forEach.call(document.querySelectorAll('#descCheck li'), function (li) {
-      var re = new RegExp('^' + li.getAttribute('data-k') + ':[ \\t]*\\S', 'm');
-      li.classList.toggle('ok', re.test(desc.value));
-    });
-  }
-  desc.addEventListener('input', checkDesc);
-  document.getElementById('tplBtn').addEventListener('click', function () {
-    if (!desc.value.trim()) desc.value = TEMPLATE;
-    else if (desc.value.indexOf('Qué pasó:') < 0) desc.value = TEMPLATE + '\n\n' + desc.value;
-    desc.focus();
-    var end = desc.value.indexOf('\n');
-    desc.setSelectionRange(end, end);
-    checkDesc();
-  });
-  file.addEventListener('change', function () {
-    var f = file.files && file.files[0];
-    var err = fileError();
-    fileMsg.className = 'filemsg ' + (f ? (err ? 'bad' : 'good') : '');
-    fileMsg.textContent = !f ? 'Prueba con un archivo: solo revisamos que sirva, no se sube.' : err || '✓ ' + f.name + ' (' + mb(f.size) + ') sirve como adjunto.';
-  });
-  // Enter en un campo de texto avanza al siguiente paso en vez de enviar
-  form.addEventListener('submit', function (e) { e.preventDefault(); advance(current); });
-
-  document.getElementById('simAgain').addEventListener('click', function () {
-    form.reset();
-    file.dispatchEvent(new Event('change'));
-    document.getElementById('tipoFb').textContent = '';
-    document.getElementById('tituloCount').textContent = '0 / 100';
-    checkDesc();
-    steps.forEach(function (li) {
-      li.classList.remove('done');
-      li.querySelector('.st small').textContent = '';
-      li.querySelector('.serr').textContent = '';
-    });
-    reached = 0;
-    form.hidden = false;
-    done.hidden = true;
-    open(0, true);
-  });
-
-  open(0, false);
+  var callout = document.getElementById('callout');
+  var current = 0;
+  callout.querySelector('.c-prev').addEventListener('click', function () { select(current - 1, true); });
+  callout.querySelector('.c-next').addEventListener('click', function () { select(current + 1, true); });
+  select(0, false);
 })();
 
 // Resalta en la barra de secciones la sección visible
