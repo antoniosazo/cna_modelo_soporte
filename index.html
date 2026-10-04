@@ -35,7 +35,14 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 /* Barra superior */
 .top{position:sticky;top:0;z-index:10;background:var(--forest-deep);color:#fff}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
-.top-name{font-weight:600;font-size:16px}
+.top-name{font-weight:600;font-size:16px;text-decoration:none}
+.secnav{border-top:1px solid var(--forest-line)}
+.secnav-track{max-width:1120px;margin:0 auto;padding:0 var(--gutter);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.secnav-track::-webkit-scrollbar{display:none}
+.secnav a{flex-shrink:0;display:flex;align-items:center;min-height:44px;padding:0 12px;font-size:14px;font-weight:500;color:var(--on-dark-2);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap}
+.secnav a:hover{color:#fff}
+.secnav a.on{color:#fff;border-bottom-color:var(--accent-light)}
+main section[id]{scroll-margin-top:100px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:12px;background:var(--accent-light);color:var(--forest-deep);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
 .btn:hover{background:oklch(0.88 0.1 150)}
 .top .btn{min-height:38px;padding:0 14px;font-size:15px}
@@ -99,13 +106,14 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .shot img{width:100%;height:100%;display:block;border-radius:12px;border:1px solid #e0d7c4;box-shadow:0 12px 30px rgba(20,25,30,.1)}
 .spot{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:var(--forest);color:#fff;font-family:var(--mono);font-size:15px;font-weight:500;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25);transition:background .2s,box-shadow .2s;padding:0}
 .spot[aria-pressed="true"]{background:oklch(0.55 0.14 150);box-shadow:0 0 0 6px oklch(0.6 0.13 150 / .3)}
-.swipe{font-size:14px;color:var(--ink-3);margin-top:-4px}
-@media (min-width:800px){.swipe{display:none}.shot-scroll{overflow:visible;margin:0;padding:18px 0}}
+.hint{font-size:15px;color:var(--ink-3)}
+@media (min-width:800px){.shot-scroll{overflow:visible;margin:0;padding:18px 0}}
+.c-bar{height:4px;border-radius:2px;background:var(--forest-line);overflow:hidden}
+.c-bar i{display:block;height:100%;background:var(--accent-light);transition:width .25s ease}
 .lead{font-size:18px;color:var(--ink-2);margin-bottom:28px}
 .ready{margin-bottom:16px}
-.ready .ticks li::before,.tips .ticks li::before{background:var(--accent)}
+.ready .ticks li::before{background:var(--accent)}
 .ticks li strong{font-weight:600}
-.tips{margin-top:24px}
 .after{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--forest);color:#fff;display:grid;gap:6px}
 .after p{color:var(--on-dark)}
 .after strong{font-size:18px}
@@ -178,13 +186,24 @@ footer a{color:var(--accent-light)}
 
 <header class="top">
   <div class="wrap">
-    <div class="top-name">Modelo de soporte</div>
+    <a class="top-name" href="#inicio">Modelo de soporte</a>
     <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">Crear ticket</a>
   </div>
+  <nav class="secnav" aria-label="Secciones">
+    <div class="secnav-track" id="secnav">
+      <a href="#plan">3 días</a>
+      <a href="#equipos">Equipos</a>
+      <a href="#crear">Crear ticket</a>
+      <a href="#formulario">Formulario</a>
+      <a href="#estados">Seguimiento</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#recordar">Recordar</a>
+    </div>
+  </nav>
 </header>
 
 <main>
-  <section class="dark hero">
+  <section class="dark hero" id="inicio">
     <div class="wrap">
       <div class="eyebrow">Portal Interno del grupo</div>
       <h1>Modelo de soporte</h1>
@@ -241,7 +260,7 @@ footer a{color:var(--accent-light)}
     </div>
   </section>
 
-  <section>
+  <section id="equipos">
     <div class="wrap">
       <div class="eyebrow">Equipos de soporte</div>
       <h2 style="margin-bottom:10px">¿Quién atiende tu caso?</h2>
@@ -279,7 +298,7 @@ footer a{color:var(--accent-light)}
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section id="crear" style="padding-top:0">
     <div class="wrap">
       <div class="eyebrow">Paso a paso</div>
       <h2>Cómo crear tu ticket</h2>
@@ -306,12 +325,12 @@ footer a{color:var(--accent-light)}
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section id="formulario" style="padding-top:0">
     <div class="wrap">
       <div class="eyebrow">Tickets · Nuevo ticket</div>
       <h2 style="margin-bottom:8px">Así se completa el formulario</h2>
-      <p class="swipe">Desliza la imagen hacia el lado y toca cada número.</p>
-      <div class="shot-scroll">
+      <p class="hint">Toca un número en la imagen o usa <strong>Siguiente</strong> para recorrer los 9 campos.</p>
+      <div class="shot-scroll" id="shotScroll">
         <div class="shot" id="shot">
           <img src="assets/nuevo-ticket.png" alt="Formulario Nuevo Ticket del Portal Interno del grupo" width="1912" height="797" loading="lazy">
         </div>
@@ -320,29 +339,21 @@ footer a{color:var(--accent-light)}
         <div class="callout-head">
           <span class="c-num">1</span>
           <div>
-            <div class="c-kicker">Qué hacer en este campo</div>
+            <div class="c-kicker">Campo <span class="c-pos">1</span> de 9</div>
             <strong class="c-title"></strong>
           </div>
         </div>
         <p class="c-text"></p>
+        <div class="c-bar" aria-hidden="true"><i></i></div>
         <div class="callout-nav">
           <button type="button" class="c-prev">← Anterior</button>
           <button type="button" class="c-next">Siguiente →</button>
         </div>
       </div>
-      <div class="card tips">
-        <h3>Errores comunes</h3>
-        <ul class="ticks">
-          <li><strong>Sin ticket no hay atención.</strong> No lo envíes por correo, teléfono ni en el pasillo.</li>
-          <li><strong>¿Elegiste mal?</strong> No pasa nada. Netsus reclasifica tu caso y conserva el mismo número.</li>
-          <li><strong>Describe el problema con detalle.</strong> Qué pasó, dónde y desde cuándo es lo que más acelera la solución.</li>
-          <li><strong>¿Volvió el problema?</strong> Avísalo en el mismo ticket antes de que se cierre.</li>
-        </ul>
-      </div>
     </div>
   </section>
 
-  <section class="dark">
+  <section class="dark" id="estados">
     <div class="wrap">
       <div class="eyebrow">Seguimiento</div>
       <h2>En qué va tu ticket</h2>
@@ -360,7 +371,7 @@ footer a{color:var(--accent-light)}
     </div>
   </section>
 
-  <section>
+  <section id="faq">
     <div class="wrap">
       <div class="eyebrow">Dudas comunes</div>
       <h2>Preguntas frecuentes</h2>
@@ -376,7 +387,7 @@ footer a{color:var(--accent-light)}
     </div>
   </section>
 
-  <section class="dark">
+  <section class="dark" id="recordar">
     <div class="wrap">
       <div class="eyebrow">Para recordar</div>
       <h2>4 cosas para recordar</h2>
@@ -422,6 +433,14 @@ footer a{color:var(--accent-light)}
     buttons.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
     current = i;
     callout.querySelector('.c-num').textContent = i + 1;
+    callout.querySelector('.c-pos').textContent = i + 1;
+    callout.querySelector('.c-bar i').style.width = ((i + 1) / SPOTS.length * 100) + '%';
+    // En celular la captura se desliza: centra el número activo en la vista
+    var sc = document.getElementById('shotScroll');
+    if (sc.scrollWidth > sc.clientWidth) {
+      var x = SPOTS[i][0] / 100 * shot.offsetWidth - sc.clientWidth / 2;
+      sc.scrollTo({ left: Math.max(0, x), behavior: scroll ? 'smooth' : 'auto' });
+    }
     callout.querySelector('.c-title').textContent = SPOTS[i][2];
     callout.querySelector('.c-text').textContent = SPOTS[i][3];
     callout.querySelector('.c-prev').disabled = i === 0;
@@ -446,6 +465,29 @@ footer a{color:var(--accent-light)}
   callout.querySelector('.c-prev').addEventListener('click', function () { select(current - 1, true); });
   callout.querySelector('.c-next').addEventListener('click', function () { select(current + 1, true); });
   select(0, false);
+})();
+
+// Resalta en la barra de secciones la sección visible
+(function () {
+  var track = document.getElementById('secnav');
+  var links = Array.prototype.slice.call(track.querySelectorAll('a'));
+  if (!('IntersectionObserver' in window)) return;
+  var visible = {};
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+    var active = null;
+    links.forEach(function (a) { if (!active && visible[a.getAttribute('href').slice(1)]) active = a; });
+    links.forEach(function (a) { a.classList.toggle('on', a === active); });
+    if (active) {
+      active.setAttribute('aria-current', 'true');
+      track.scrollTo({ left: active.offsetLeft - 16, behavior: 'smooth' });
+    }
+    links.forEach(function (a) { if (a !== active) a.removeAttribute('aria-current'); });
+  }, { rootMargin: '-110px 0px -55% 0px' });
+  links.forEach(function (a) {
+    var s = document.getElementById(a.getAttribute('href').slice(1));
+    if (s) io.observe(s);
+  });
 })();
 </script>
 </body>
