@@ -117,6 +117,16 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .after{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--forest);color:#fff;display:grid;gap:6px}
 .after p{color:var(--on-dark)}
 .after strong{font-size:18px}
+.callout{margin-top:16px;background:var(--forest);color:#fff;border-radius:18px;padding:22px;display:grid;gap:14px;border-top:6px solid var(--accent-light)}
+.callout-head{display:flex;gap:16px;align-items:center}
+.c-num{width:52px;height:52px;flex-shrink:0;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:22px}
+.c-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-light)}
+.c-title{font-size:22px;font-weight:600;line-height:1.2}
+.c-text{color:var(--on-dark);font-size:18px;line-height:1.45}
+.callout-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.callout-nav button{min-height:44px;border-radius:12px;border:1px solid var(--forest-rule);background:var(--forest-card);color:#fff;font:inherit;font-size:16px;font-weight:500;cursor:pointer}
+.callout-nav button:disabled{opacity:.4;cursor:default}
+.callout-nav button:not(:disabled):hover{background:var(--forest-line)}
 
 /* Estados */
 .states{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -313,6 +323,20 @@ footer a{color:var(--accent-light)}
           <img src="assets/nuevo-ticket.png" alt="Formulario Nuevo Ticket del Portal Interno del grupo" width="1912" height="797" loading="lazy">
         </div>
       </div>
+      <div class="callout" id="callout" aria-live="polite">
+        <div class="callout-head">
+          <span class="c-num">1</span>
+          <div>
+            <div class="c-kicker">Qué hacer en este campo</div>
+            <strong class="c-title"></strong>
+          </div>
+        </div>
+        <p class="c-text"></p>
+        <div class="callout-nav">
+          <button type="button" class="c-prev">← Anterior</button>
+          <button type="button" class="c-next">Siguiente →</button>
+        </div>
+      </div>
       <ol class="fields" id="fields"></ol>
       <div class="card tips">
         <h3>Errores comunes</h3>
@@ -408,7 +432,13 @@ footer a{color:var(--accent-light)}
   function select(i, scroll) {
     buttons.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
     items.forEach(function (li, k) { li.classList.toggle('on', k === i); });
-    if (scroll) items[i].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    current = i;
+    callout.querySelector('.c-num').textContent = i + 1;
+    callout.querySelector('.c-title').textContent = SPOTS[i][2];
+    callout.querySelector('.c-text').textContent = SPOTS[i][3];
+    callout.querySelector('.c-prev').disabled = i === 0;
+    callout.querySelector('.c-next').disabled = i === SPOTS.length - 1;
+    if (scroll) callout.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
   SPOTS.forEach(function (s, i) {
@@ -438,6 +468,10 @@ footer a{color:var(--accent-light)}
     list.appendChild(li);
     items.push(li);
   });
+  var callout = document.getElementById('callout');
+  var current = 0;
+  callout.querySelector('.c-prev').addEventListener('click', function () { select(current - 1, true); });
+  callout.querySelector('.c-next').addEventListener('click', function () { select(current + 1, true); });
   select(0, false);
 })();
 </script>
