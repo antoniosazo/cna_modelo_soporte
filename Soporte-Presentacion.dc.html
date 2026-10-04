@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// En celular la presentación 1920×1080 queda ilegible: se abre la versión web. ?deck fuerza la presentación.
+if (matchMedia('(max-width: 820px)').matches && !/[?&]deck\b/.test(location.search)) location.replace('index.html');
+</script>
 <script src="./support.js"></script>
 </head>
 <body>

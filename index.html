@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;overflow-x:clip;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
 h1,h2,h3{margin:0;letter-spacing:-0.02em;line-height:1.1;text-wrap:balance}
 p{margin:0;text-wrap:pretty}
 a{color:inherit}
@@ -43,9 +43,9 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 .secnav a:hover{color:#fff}
 .secnav a.on{color:#fff;border-bottom-color:var(--accent-light)}
 main section[id]{scroll-margin-top:100px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:12px;background:var(--accent-light);color:var(--forest-deep);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;max-width:100%;padding:10px 18px;border-radius:12px;background:var(--accent-light);color:var(--forest-deep);font-weight:600;font-size:16px;line-height:1.25;text-align:center;text-decoration:none;overflow-wrap:anywhere}
 .btn:hover{background:oklch(0.88 0.1 150)}
-.top .btn{min-height:38px;padding:0 14px;font-size:15px}
+.top .btn{min-height:40px;padding:0 14px;font-size:15px;white-space:nowrap;flex-shrink:0}
 
 /* Portada */
 .hero{padding:56px 0 48px}
@@ -173,6 +173,7 @@ main section[id]{scroll-margin-top:100px}
 footer{background:var(--forest-deep);color:var(--on-dark-2);font-size:14px;padding:24px 0}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 footer a{color:var(--accent-light)}
+@media (max-width:820px){.deck-link{display:none}}
 
 @media (min-width:800px){
   :root{--gutter:32px}
@@ -408,7 +409,7 @@ footer a{color:var(--accent-light)}
 <footer>
   <div class="wrap">
     <span>Modelo de soporte · Portal Interno del grupo</span>
-    <a href="Soporte-Presentacion.dc.html">Ver como presentación</a>
+    <a class="deck-link" href="Soporte-Presentacion.dc.html?deck">Ver como presentación</a>
   </div>
 </footer>
 
