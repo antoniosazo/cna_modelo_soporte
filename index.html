@@ -98,6 +98,7 @@ main section[id]{scroll-margin-top:100px}
 .num{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:500;grid-row:span 2}
 .steps h3{font-size:20px;font-weight:600}
 .steps p{color:var(--ink-2);font-size:16px}
+.steps .mfa-img{grid-column:1/-1;width:100%;max-width:444px;height:auto;margin-top:8px;border-radius:12px;border:1px solid var(--line)}
 .url-box{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:8px;background:oklch(0.95 0.04 150);color:oklch(0.38 0.11 150);font-family:var(--mono);font-size:14px;font-weight:500;word-break:break-all}
 
 /* Formulario */
@@ -194,6 +195,7 @@ footer a{color:var(--accent-light)}
     <div class="secnav-track" id="secnav">
       <a href="#plan">3 días</a>
       <a href="#equipos">Equipos</a>
+      <a href="#activar">Activar cuenta</a>
       <a href="#crear">Crear ticket</a>
       <a href="#formulario">Formulario</a>
       <a href="#estados">Seguimiento</a>
@@ -296,6 +298,21 @@ footer a{color:var(--accent-light)}
           <div class="who"><small>Lo atiende</small><strong>Netsus reclasifica</strong></div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="activar" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Primer ingreso</div>
+      <h2>Activa tu cuenta y registra tu MFA</h2>
+      <p class="lead">Hazlo una sola vez, antes de crear tu primer ticket. Necesitas tu celular.</p>
+      <ol class="steps">
+        <li><span class="num">1</span><h3>Abre el correo de bienvenida</h3><p>Busca el correo de <strong>Notificaciones</strong> con el asunto "Bienvenido a CNAGRO 360" y presiona <strong>Activar mi cuenta</strong>. El enlace vale 48 horas.</p></li>
+        <li><span class="num">2</span><h3>Define tu contraseña</h3><p>Escribe tu contraseña y confírmala. Luego presiona <strong>Activar cuenta</strong>.</p>
+          <img class="mfa-img" src="assets/mfa/contrasena.png" alt="Pantalla Activa tu cuenta con los campos Contraseña y Confirmar contraseña" width="444" height="382" loading="lazy"></li>
+        <li><span class="num">3</span><h3>Registra tu MFA con tu celular</h3><p>Aparecerá un código QR. Escanéalo con <strong>Google Authenticator</strong>, <strong>Microsoft Authenticator</strong> o <strong>Authy</strong>. Luego ingresa el código de 6 dígitos que muestra la app y presiona <strong>Confirmar y activar</strong>.</p></li>
+      </ol>
+      <p class="hint" style="margin-top:16px">Este paso es obligatorio para todos los usuarios del portal. Cuando termines, ya puedes crear tus tickets.</p>
     </div>
   </section>
 
