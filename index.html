@@ -116,8 +116,9 @@ main section[id]{scroll-margin-top:100px}
 .ob-cap{font-size:14px;color:var(--ink-3)}
 .ob-shot{width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card-soft)}
 .ob-shot img{display:block;width:100%;height:auto}
-.ob-apps{display:flex;flex-wrap:wrap;gap:6px}
-.ob-apps span{padding:5px 12px;border-radius:8px;background:oklch(0.95 0.035 230);color:oklch(0.42 0.12 230);font-family:var(--mono);font-size:13px}
+.ob-apps{display:grid;gap:8px;width:100%}
+.ob-app{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 14px;border-radius:14px;background:var(--card-soft);border:1px solid var(--line);font-weight:600;font-size:16px}
+.ob-app img{width:40px;height:40px;flex-shrink:0;border-radius:10px}
 .ob-code{display:flex;gap:6px;width:100%;max-width:300px}
 .ob-code span{flex:1;height:48px;border:2px solid var(--line-strong);border-radius:10px;background:var(--card-soft)}
 .ob-code span.on{border-color:var(--accent);box-shadow:0 0 0 3px oklch(0.6 0.13 150 / .2)}
@@ -361,9 +362,17 @@ footer a{color:var(--accent-light)}
           <h3>Registra tu MFA con el celular</h3>
           <p>Escanea el código QR de la pantalla con una app de autenticación y escribe el código de 6 dígitos que muestra.</p>
           <div class="ob-apps">
-            <span>Google Authenticator</span>
-            <span>Microsoft Authenticator</span>
-            <span>Authy</span>
+            <div class="ob-app">
+              <img src="assets/mfa/apps/google-authenticator.png" alt="Ícono de Google Authenticator" width="40" height="40" loading="lazy">
+              <span>Google Authenticator</span>
+            </div>
+            <div class="ob-app">
+              <img src="assets/mfa/apps/microsoft-authenticator.png" alt="Ícono de Microsoft Authenticator" width="40" height="40" loading="lazy">
+              <span>Microsoft Authenticator</span>
+            </div>
+            <div class="ob-app">
+              <span>Authy</span>
+            </div>
           </div>
           <div class="ob-code" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
         </li>
