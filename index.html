@@ -35,7 +35,9 @@ h2{font-size:clamp(30px,6vw,48px);font-weight:600;margin-bottom:28px}
 /* Barra superior */
 .top{position:sticky;top:0;z-index:10;background:var(--forest-deep);color:#fff}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
-.top-name{font-weight:600;font-size:16px;text-decoration:none}
+.top-name{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;text-decoration:none;min-width:0}
+.top-name img{display:block;height:28px;width:auto;flex-shrink:0}
+.top-name span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .secnav{border-top:1px solid var(--forest-line)}
 .secnav-track{max-width:1120px;margin:0 auto;padding:0 var(--gutter);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .secnav-track::-webkit-scrollbar{display:none}
@@ -218,7 +220,7 @@ footer a{color:var(--accent-light)}
 
 <header class="top">
   <div class="wrap">
-    <a class="top-name" href="#inicio">Modelo de soporte</a>
+    <a class="top-name" href="#inicio"><img src="assets/logo-nutristream.png" alt="Nutri Stream" width="169" height="84"><span>Modelo de soporte</span></a>
     <a class="btn" href="https://portal-interno.cnagro.cl/" target="_blank" rel="noopener">Crear ticket</a>
   </div>
   <nav class="secnav" aria-label="Secciones">
